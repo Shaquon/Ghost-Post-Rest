@@ -11,11 +11,11 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-    def create(self, request):
+    def create_post(self, request):
         data = request.data
         print(data)
         post = Post.objects.create(
-            is_boast=data['is_boast'],
+            is_boast=data[False],
             content=data['content']
         )
         return Response({
